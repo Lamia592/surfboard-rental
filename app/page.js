@@ -1,23 +1,25 @@
 import Link from 'next/link';
+import Layout from '../components/Layout';
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center bg-blue-100">
-      <h1 className="text-4xl font-bold mb-8">Welcome to Surfboard Rental</h1>
-      <div className="space-x-4">
-        <Link href="/login">
-          <a className="bg-blue-500 text-white px-4 py-2 rounded">Login</a>
-        </Link>
-        <Link href="/register">
-          <a className="bg-green-500 text-white px-4 py-2 rounded">Register</a>
-        </Link>
-        <Link href="/surfboards">
-          <a className="bg-yellow-500 text-white px-4 py-2 rounded">View Surfboards</a>
-        </Link>
-        <Link href="/add-surfboard">
-          <a className="bg-purple-500 text-white px-4 py-2 rounded">Add Surfboard</a>
-        </Link>
+    <Layout>
+      <div className="flex flex-col items-center justify-center min-h-screen bg-cover bg-center bg-surfing bg-opacity-90 text-white text-center">
+        <h1 className="text-black text-5xl font-bold mb-4">Ride the Waves</h1>
+        <p className="text-black text-xl mb-8">Find the perfect surfboard for your next adventure.</p>
+        <div className="space-x-4">
+          <Link href="/surfboards">
+            <a className="bg-yellow-500 hover:bg-yellow-400 text-white px-6 py-3 rounded-md text-lg font-semibold">
+              Browse Surfboards
+            </a>
+          </Link>
+          <Link href="/login">
+            <a className="bg-blue-500 hover:bg-blue-400 text-white px-6 py-3 rounded-md text-lg font-semibold">
+              Login
+            </a>
+          </Link>
+        </div>
       </div>
-    </div>
+    </Layout>
   );
 }
