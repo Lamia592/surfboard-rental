@@ -22,11 +22,11 @@ export default function Surfboards() {
       console.error("No surfboard selected");
       return;
     }
-    
+    const userId= (await supabase.auth.getUser()).data.user.id;
     const { data, error } = await supabase.from('rentals').insert([
       {
         surfboard_id: surfboard.id,
-        renter_id: supabase.auth.user().id,
+        renter_id: userId,
         start_date: new Date(),
         end_date: new Date(), // Replace with actual rental dates
         total_price: surfboard.price_per_day, // Replace with actual calculated price

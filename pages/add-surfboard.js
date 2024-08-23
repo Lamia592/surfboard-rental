@@ -7,12 +7,17 @@ export default function AddSurfboard() {
   const [price, setPrice] = useState('');
 
   const handleAddSurfboard = async () => {
+    console.log("handleAddSurfboard request");
+
+    console.log((await supabase.auth.getUser()).data.user.id);
+    console.log(supabase.auth.user);
+    const userId= (await supabase.auth.getUser()).data.user.id;
     const { data, error } = await supabase.from('surfboards').insert([
       {
         title,
         description,
         price_per_day: price,
-        owner_id: supabase.auth.user().id,
+        owner_id: userId,
       },
     ]);
     if (error) {
