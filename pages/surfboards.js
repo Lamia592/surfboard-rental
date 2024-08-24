@@ -96,6 +96,7 @@ return (
                   <h3 className="font-bold text-xl text-gray-800">{surfboard.title}</h3>
                   <p className="text-gray-600">{surfboard.description}</p>
                   <p className="text-green-500 text-lg font-bold">${surfboard.price_per_day} / day</p>
+                  <p className="text-blue-500">Located@  {surfboard.location}</p>
                   <button 
                     onClick={() => handleRentSurfboard(surfboard)} 
                     className="mt-4 w-full bg-blue-500 hover:bg-blue-400 text-white py-2 rounded-md"

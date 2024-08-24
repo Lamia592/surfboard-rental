@@ -49,11 +49,14 @@ export default function Header() {
             </li>
             <li>
               <Link href="/surfboards" className="hover:underline">
-                Surfboards
+                All Boards
               </Link>
             </li>
             {user ? (
               <>
+                <Link className="hover:underline" href="/add-surfboard">
+                     Rent Yours
+                </Link>
                 <Link className="hover:underline" href="/my-rentals">
                      My Rentals
                 </Link>

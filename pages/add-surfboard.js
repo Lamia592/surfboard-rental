@@ -7,6 +7,8 @@ export default function AddSurfboard() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
+  const [image_url, setimage_url] = useState('');
+  const [location, setlocation] = useState('');
   const router = useRouter();
 
   const handleAddSurfboard = async () => {
@@ -22,6 +24,8 @@ export default function AddSurfboard() {
         description,
         price_per_day: price,
         owner_id: user.id,
+        image_url:image_url,
+        location:location
       },
     ]);
     if (error) {
@@ -39,7 +43,7 @@ export default function AddSurfboard() {
       
           <h2 className="text-2xl font-bold mb-4 text-center text-gray-800">Add a New Surfboard</h2>
           <p className="text-gray-600 mb-6 text-center">
-            Fill in the details below to add a new surfboard to your listing.
+          Provide details about the surfboard you want to rent out. This information will help renters decide if your surfboard is right for them.  
           </p>
           
         
@@ -55,6 +59,19 @@ export default function AddSurfboard() {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             className="border border-gray-300 p-2 w-full mb-4 rounded text-gray-800 bg-white h-24" 
+          />
+          <input
+            type="text"
+            placeholder="Image Url"
+            value={image_url}
+            onChange={(e) => setimage_url(e.target.value)}
+            className="border border-gray-300 p-2 w-full mb-4 rounded text-gray-800 bg-white" 
+          />
+          <textarea
+            placeholder="Location"
+            value={location}
+            onChange={(e) => setlocation(e.target.value)}
+            className="border border-gray-300 p-2 w-full mb-4 rounded text-gray-800 bg-white" 
           />
           <input
             type="number"
