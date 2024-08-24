@@ -11,13 +11,18 @@ export default function Surfboards() {
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [totalDays, setTotalDays] = useState(0);
+  const [searchTerm, setSearchTerm] = useState(''); // State to hold the search term
+
+  // useEffect(() => {
+  //   fetchSurfboards();
+  // }, []);
 
   useEffect(() => {
-    fetchSurfboards();
-  }, []);
+    fetchSurfboards(searchTerm); // Fetch surfboards based on search term
+  }, [searchTerm]); // Re-fetch data whenever the search term changes
 
-  const fetchSurfboards = async () => {
-    const { data, error } = await supabase.from('surfboards').select('*, rentals (status)');
+  const fetchSurfboards = async (term) => {
+    const { data, error } = await supabase.from('surfboards').select('*, rentals (status)').or(`title.ilike.%${term}%,description.ilike.%${term}%`); // Search filter;
     if (error) {
       console.error(error);
     } else {
@@ -108,12 +113,29 @@ export default function Surfboards() {
     }
   };
   
+    // Filter surfboards based on search term
+    const filteredSurfboards = surfboards.filter(surfboard =>
+      surfboard.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      surfboard.description.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
 return (
 <Layout>
       <div className="bg-white min-h-screen py-8"> {/* Ensure full page height and white background */}
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">Available Surfboards</h2>
+
+            {/* Search Input */}
+            <div className="mb-6">
+              <input
+                type="text"
+                placeholder="Search surfboards..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800"
+              />
+            </div>
+
            {/* Modern Date Picker Design */}
            <div className="bg-gray-50 p-6 rounded-lg shadow-md mb-6">
             <h3 className="text-xl font-semibold text-gray-800 mb-4 text-center">Select Your Rental Dates</h3>
