@@ -55,8 +55,8 @@ export default function Login() {
           {/* Register Link */}
           <p className="mt-4 text-sm text-center">
             Don&#39;t have an account?{' '}
-            <Link href="/register">
-              <a className="text-blue-500 hover:underline">Register here</a>
+            <Link href="/register" className="text-blue-500 hover:underline">
+              Register here
             </Link>
           </p>
         </div>

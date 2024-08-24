@@ -15,18 +15,18 @@ export default function Header() {
         <nav>
           <ul className="flex space-x-4">
             <li>
-              <Link href="/">
-                <a className="hover:underline">Home</a>
+              <Link href="/" className="hover:underline">
+                Home
               </Link>
             </li>
             <li>
-              <Link href="/surfboards">
-                <a className="hover:underline">Surfboards</a>
+              <Link href="/surfboards" className="hover:underline">
+                Surfboards
               </Link>
             </li>
             <li>
-              <Link href="/login">
-                <a className="hover:underline">Login</a>
+              <Link href="/login" className="hover:underline">
+                Login
               </Link>
             </li>
           </ul>
