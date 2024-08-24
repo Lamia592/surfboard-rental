@@ -23,6 +23,7 @@ export default function Header() {
   const handleLogout = async () => {
     await supabase.auth.signOut();
     setUser(null);
+    window.location.href = '/';
   };
 
   return (
@@ -53,12 +54,17 @@ export default function Header() {
             </li>
             {user ? (
               <>
+                <Link className="hover:underline" href="/my-rentals">
+                     My Rentals
+                </Link>
                 <li className="font-semibold">Hello, {user.email}</li>
+
                 <li>
                   <button onClick={handleLogout} className="hover:underline">
                     Logout
                   </button>
                 </li>
+
               </>
             ) : (
               <>

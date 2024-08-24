@@ -23,7 +23,8 @@ export default function Surfboards() {
 
   const handleRentSurfboard = async (surfboard) => {
     const stripe = await stripePromise;
-
+  
+    // Create a Stripe checkout session
     const response = await fetch('/api/create-checkout-session', {
       method: 'POST',
       headers: {
@@ -35,17 +36,48 @@ export default function Surfboards() {
         title: surfboard.title,
       }),
     });
-
+  
     const session = await response.json();
-
-    const result = await stripe.redirectToCheckout({
-      sessionId: session.id,
-    });
-
-    if (result.error) {
-      console.error(result.error.message);
+  
+    if (session.id) {
+      // Get the logged-in user's ID
+      const user= (await supabase.auth.getUser()).data.user;
+      if (!user) {
+        alert('You must be logged in to rent a surfboard.');
+        return;
+      }
+  
+      // Insert a new rental record into the database with the Stripe session ID
+      const { data, error } = await supabase.from('rentals').insert([
+        {
+          renter_id: user.id, // Assuming this is the foreign key to the user
+          surfboard_id: surfboard.id, // Foreign key to the surfboard
+          status: 'pending', // Initial status
+          stripe_session_id: session.id, // Stripe session ID for reference
+          start_date: new Date(),
+          end_date: new Date(),
+          total_price:surfboard.price_per_day
+        },
+      ]);
+  
+      if (error) {
+        console.error('Error creating rental record:', error);
+        alert('An error occurred while processing your rental. Please try again.');
+      } else {
+        console.log('Rental record created successfully:', data);
+  
+        // Redirect to Stripe Checkout
+        const result = await stripe.redirectToCheckout({ sessionId: session.id });
+        if (result.error) {
+          console.error('Error redirecting to Stripe Checkout:', result.error.message);
+        }
+      }
+    } else {
+      console.error('Error creating Stripe session:', session.error);
+      alert('An error occurred while creating the payment session. Please try again.');
     }
   };
+  
 
 return (
 <Layout>
