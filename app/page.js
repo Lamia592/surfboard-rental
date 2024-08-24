@@ -8,15 +8,15 @@ export default function Home() {
         <h1 className="text-black text-5xl font-bold mb-4">Ride the Waves</h1>
         <p className="text-black text-xl mb-8">Find the perfect surfboard for your next adventure.</p>
         <div className="space-x-4">
-          <Link href="/surfboards">
-            <a className="bg-yellow-500 hover:bg-yellow-400 text-white px-6 py-3 rounded-md text-lg font-semibold">
+          <Link className="bg-yellow-500 hover:bg-yellow-400 text-white px-6 py-3 rounded-md text-lg font-semibold" href="/surfboards">
+           
               Browse Surfboards
-            </a>
+           
           </Link>
-          <Link href="/login">
-            <a className="bg-blue-500 hover:bg-blue-400 text-white px-6 py-3 rounded-md text-lg font-semibold">
+          <Link className="bg-blue-500 hover:bg-blue-400 text-white px-6 py-3 rounded-md text-lg font-semibold" href="/login">
+           
               Login
-            </a>
+           
           </Link>
         </div>
       </div>
