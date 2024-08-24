@@ -2,11 +2,13 @@ import { useState } from 'react';
 import { supabase } from '../lib/supabaseClient';
 import Link from 'next/link';
 import Layout from '../components/Layout';
+import { useRouter } from 'next/router'; // Import useRouter from Next.js
 
 export default function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+  const router = useRouter(); // Initialize the router
+  
   const handleRegister = async () => {
     const { error } = await supabase.auth.signUp({ email, password });
     if (error) {
@@ -14,6 +16,7 @@ export default function Register() {
       console.error(error);
     } else {
       alert('Registration successful! Check your email to confirm your account.');
+      router.push('/'); // Redirect to the home page after successful login
     }
   };
 
@@ -34,14 +37,14 @@ export default function Register() {
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="border border-gray-300 p-2 w-full mb-4 rounded"
+          className="text-gray-600 border border-gray-300 p-2 w-full mb-4 rounded"
         />
         <input
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="border border-gray-300 p-2 w-full mb-4 rounded"
+          className="text-gray-600 border border-gray-300 p-2 w-full mb-4 rounded"
         />
         <button
           onClick={handleRegister}
