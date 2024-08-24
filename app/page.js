@@ -13,11 +13,11 @@ export default function Home() {
               Browse Surfboards
            
           </Link>
-          <Link className="bg-blue-500 hover:bg-blue-400 text-white px-6 py-3 rounded-md text-lg font-semibold" href="/login">
+          {/* <Link className="bg-blue-500 hover:bg-blue-400 text-white px-6 py-3 rounded-md text-lg font-semibold" href="/login">
            
               Login
            
-          </Link>
+          </Link> */}
         </div>
       </div>
     </Layout>
