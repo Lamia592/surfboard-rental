@@ -19,34 +19,45 @@ export default function Register() {
 
   return (
     <Layout>
-      <div className="min-h-screen flex items-center justify-center bg-gray-100">
-        <div className="p-6 max-w-md w-full bg-white shadow-md rounded">
-          <h2 className="text-2xl font-bold mb-4">Register</h2>
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="border border-gray-300 p-2 w-full mb-4 rounded"
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="border border-gray-300 p-2 w-full mb-4 rounded"
-          />
-          <button onClick={handleRegister} className="bg-green-500 hover:bg-green-400 text-white px-4 py-2 w-full rounded">
-            Register
-          </button>
-          <p className="mt-4 text-sm text-center">
-            Already have an account?{' '}
-            <Link href="/login" className="text-blue-500 hover:underline">
-              Login here
-            </Link>
-          </p>
-        </div>
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 py-12">
+      <div className="p-6 max-w-md w-full bg-white shadow-md rounded">
+        {/* Title and Description */}
+        <h2 className="text-2xl font-bold mb-4 text-center text-gray-800">Create Your Account</h2>
+        <p className="text-gray-600 mb-4 text-center">
+          Join our surf community by creating an account. It's quick and easy!
+          Just fill in your details below and get started on your surfing adventure.
+        </p>
+        
+        {/* Registration Form */}
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="border border-gray-300 p-2 w-full mb-4 rounded"
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="border border-gray-300 p-2 w-full mb-4 rounded"
+        />
+        <button
+          onClick={handleRegister}
+          className="bg-green-500 hover:bg-green-400 text-white px-4 py-2 w-full rounded"
+        >
+          Register
+        </button>
+
+        {/* Login Link */}
+        <p className="mt-4 text-sm text-center">
+          Already have an account?{' '}
+          <Link href="/login" className="text-blue-500 hover:underline">
+          </Link>
+        </p>
       </div>
-    </Layout>
+    </div>
+  </Layout>
   );
 }

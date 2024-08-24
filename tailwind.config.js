@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'surfing': "url('/images/surfing.jpg')", // Ensure you have an image named 'surfing.jpg' in the public/images directory
+        'surfing': "url('/images/surfing-min.jpg')", // Ensure you have an image named 'surfing.jpg' in the public/images directory
       },
     },
   },
