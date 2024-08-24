@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { supabase } from '../lib/supabaseClient';
 import { loadStripe } from '@stripe/stripe-js';
 import Layout from '../components/Layout';
+import Image from 'next/image'
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 
@@ -87,7 +88,7 @@ return (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {surfboards.map((surfboard) => (
               <div key={surfboard.id} className="border border-gray-200 shadow-md rounded-lg overflow-hidden bg-white">
-                <img
+                <Image
                   src={surfboard.image_url || '/images/default-surfboard.webp'} // Ensure you have a default image
                   alt={surfboard.title}
                   className="w-full h-48 object-cover"

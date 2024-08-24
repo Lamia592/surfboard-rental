@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../lib/supabaseClient';
 import Layout from '../components/Layout';
+import Image from 'next/image'
 
 export default function MyRentals() {
   const [rentals, setRentals] = useState([]);
@@ -50,7 +51,7 @@ export default function MyRentals() {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
               {rentals.map((rental) => (
                 <div key={rental.id} className="border border-gray-200 shadow-md rounded-lg overflow-hidden bg-gray-50">
-                  <img
+                  <Image
                     src={rental.surfboards.image_url || '/images/default-surfboard.webp'}
                     alt={rental.surfboards.title}
                     className="w-full h-48 object-cover"

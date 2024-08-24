@@ -24,7 +24,7 @@ export default function Register() {
         {/* Title and Description */}
         <h2 className="text-2xl font-bold mb-4 text-center text-gray-800">Create Your Account</h2>
         <p className="text-gray-600 mb-4 text-center">
-          Join our surf community by creating an account. It's quick and easy!
+          Join our surf community by creating an account. It&#39;s quick and easy!
           Just fill in your details below and get started on your surfing adventure.
         </p>
         
