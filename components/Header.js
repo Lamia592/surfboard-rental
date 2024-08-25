@@ -77,7 +77,7 @@ export default function Header() {
           </nav>
         </div>
 
-        {/* Right Section: User Info and Login/Logout */}
+        {/* Right Section: User Info and Login/Logout 
         <div className="flex items-center space-x-4">
           {user ? (
             <>
@@ -87,11 +87,12 @@ export default function Header() {
               </button>
             </>
           ) : (
-           {/* <Link href="/login" className="hover:underline">
+            <Link href="/login" className="hover:underline">
               Login
-            </Link> */}
+            </Link> 
           )}
         </div>
+        */}
       </div>
     </header>
   );
