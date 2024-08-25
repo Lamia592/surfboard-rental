@@ -49,14 +49,14 @@ export default function Header() {
           <nav>
             <ul className="flex space-x-4 items-center">
               <li>
-                {/* <Link href="/about" className="hover:underline">
+                 <Link href="/about" className="hover:underline">
                   About
-                </Link> */}
+                </Link> 
               </li>
               <li>
-                <Link href="/surfboards" className="hover:underline">
-                  All Boards
-                </Link>
+                // <Link href="/surfboards" className="hover:underline">
+                  // All Boards
+                // </Link>
               </li>
               {user && (
                 <>
