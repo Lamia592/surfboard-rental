@@ -12,7 +12,14 @@ export default function About() {
         <section className="mb-12 bg-gray-100 p-6 rounded-lg shadow-sm">
           <h2 className="text-2xl font-bold mb-4 text-gray-800">Our Mission</h2>
           <p className="text-gray-700">
-            At Surfboard Rental, our mission is to provide surf enthusiasts of all levels with access to high-quality surfboards, ensuring everyone can experience the thrill of riding the waves. We are passionate about surfing and strive to make it accessible and enjoyable for everyone.
+            Surfing is at the core of Australian culture.
+
+Affordability should not stand in anyone’s way. Whether you’re a casual surfer or an expert, you deserve the chance to surf at Sydney’s world renowned beaches.
+
+We were founded in 2024 help people enjoy surfing without needing to purchase expensive surfboards. We also help surfboard owners earn extra cash by renting out their surfboards.
+
+It is simple. You pick a surfboard you like. The owner and you agreed on a pick up location and away you go. 
+
           </p>
         </section>
         
