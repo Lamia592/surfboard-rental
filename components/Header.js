@@ -54,10 +54,10 @@ export default function Header() {
                 </Link> 
               </li>
               <li>
-             {/*   <Link href="/surfboards" className="hover:underline">
+                <Link href="/surfboards" className="hover:underline">
                    All Boards
                  </Link>
-              */}
+              
               </li>
               {user && (
                 <>
